@@ -1,5 +1,6 @@
 package com.fju.water1;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -69,6 +70,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         float money = 0;
+        DialogInterface.OnClickListener listener=new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                edMonth.setText("");
+                edNext.setText("");
+
+            }
+        };
 
         if(edMonth.getText().toString().length()!=0){
             month = Float.parseFloat(edMonth.getText().toString());
@@ -88,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             new AlertDialog.Builder(MainActivity.this)
                     .setTitle("每月抄表费用")
                     .setMessage("费用"+message)
-                    .setPositiveButton("OK",null)
+                    .setPositiveButton("OK",listener)
                     .show();
         }
         if(edNext.getText().toString().length()!=0){
@@ -109,6 +118,13 @@ public class MainActivity extends AppCompatActivity {
             new AlertDialog.Builder(MainActivity.this)
                     .setTitle("隔月抄表费用")
                     .setMessage("费用"+message)
+                    .setPositiveButton("OK",listener )
+                    .show();
+        }
+        if(edMonth.getText().toString().length()==0&&edNext.getText().toString().length()==0){
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle("错误")
+                    .setMessage("请输入数字")
                     .setPositiveButton("OK",null)
                     .show();
         }
