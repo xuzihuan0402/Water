@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             if (next >= 61 && next <= 100) {
                 money = month * 11.55f - 168;
             }
-            if (month >= 101) {
+            if (next >= 101) {
                 money = month * (12.075f) - 220.5f;
             }
             String message = Float.toString(money);
