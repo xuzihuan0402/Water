@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="当月抄表"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,31 +25,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="隔月抄表"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="@+id/month"
         app:layout_constraintStart_toStartOf="@+id/month"
         app:layout_constraintTop_toBottomOf="@+id/month" />
-
-    <EditText
-        android:id="@+id/next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/textview2"
-        app:layout_constraintStart_toStartOf="@+id/textview2"
-        app:layout_constraintTop_toBottomOf="@+id/textview2" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:onClick="money"
-        android:text="计算"
-        app:layout_constraintEnd_toEndOf="@+id/next"
-        app:layout_constraintStart_toStartOf="@+id/next"
-        app:layout_constraintTop_toBottomOf="@+id/next" />
 
     <EditText
         android:id="@+id/month"
@@ -60,5 +40,27 @@
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="计算"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="@+id/next"
+        app:layout_constraintStart_toStartOf="@+id/next"
+        app:layout_constraintTop_toBottomOf="@+id/next" />
+
+    <EditText
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/textview2"
+        app:layout_constraintStart_toStartOf="@+id/textview2"
+        app:layout_constraintTop_toBottomOf="@+id/textview2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

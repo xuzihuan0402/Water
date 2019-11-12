@@ -1,6 +1,7 @@
 package com.fju.water1;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -14,6 +15,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                money();
+            }
+        });
+
     }
 
     @Override
@@ -66,9 +76,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void money(View view){
-
-
+    public void money(){
         float money = 0;
         DialogInterface.OnClickListener listener=new DialogInterface.OnClickListener() {
             @Override
@@ -91,14 +99,16 @@ public class MainActivity extends AppCompatActivity {
                 money = month * 11.55f - 84;
             }
             if (month >= 51) {
-                money = month * (12.075f) - 110.25f;
+                money = month * 12.075f - 110.25f;
             }
-            String message = Float.toString(money);
-            new AlertDialog.Builder(MainActivity.this)
-                    .setTitle("每月抄表费用")
-                    .setMessage("费用"+message)
-                    .setPositiveButton("OK",listener)
-                    .show();
+            Intent intent = new Intent(this,ResultActivity.class);
+            startActivity(intent);
+
+//            new AlertDialog.Builder(MainActivity.this)
+//                    .setTitle("每月抄表费用")
+//                    .setMessage("费用"+money)
+//                    .setPositiveButton("OK",listener)
+//                    .show();
         }
         if(edNext.getText().toString().length()!=0){
             next = Float.parseFloat(edNext.getText().toString());
@@ -109,20 +119,19 @@ public class MainActivity extends AppCompatActivity {
                 money = next * 9.45f - 42;
             }
             if (next >= 61 && next <= 100) {
-                money = month * 11.55f - 168;
+                money = next * 11.55f - 168;
             }
             if (next >= 101) {
-                money = month * (12.075f) - 220.5f;
+                money = next * 12.075f - 220.5f;
             }
-            String message = Float.toString(money);
-            new AlertDialog.Builder(MainActivity.this)
-                    .setTitle("隔月抄表费用")
-                    .setMessage("费用"+message)
-                    .setPositiveButton("OK",listener )
-                    .show();
+//            new AlertDialog.Builder(MainActivity.this)
+//                    .setTitle("隔月抄表费用")
+//                    .setMessage("费用"+money)
+//                    .setPositiveButton("OK",listener )
+//                    .show();
         }
         if(edMonth.getText().toString().length()==0&&edNext.getText().toString().length()==0){
-            new AlertDialog.Builder(MainActivity.this)
+            new AlertDialog.Builder(this)
                     .setTitle("错误")
                     .setMessage("请输入数字")
                     .setPositiveButton("OK",null)
