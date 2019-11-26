@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 money = month * 12.075f - 110.25f;
             }
             Intent intent = new Intent(this,ResultActivity.class);
+            intent.putExtra("FEE", money);
             startActivity(intent);
 
 //            new AlertDialog.Builder(MainActivity.this)
