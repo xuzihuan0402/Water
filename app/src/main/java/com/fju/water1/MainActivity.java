@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(edMonth.getText().toString().length()!=0){
             month = Float.parseFloat(edMonth.getText().toString());
-            if(isNext = false){
+            if(isNext == false){
 
             if(month >=1&& month <=10){
                 money = month * 7.35f;
@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
             if (month >= 51) {
                 money = month * 12.075f - 110.25f;
             }
-            }else if(isNext = true){
+            }else if(isNext == true){
                 if(month >=1&& month <=20){
                 money = month * 7.35f;
             }
